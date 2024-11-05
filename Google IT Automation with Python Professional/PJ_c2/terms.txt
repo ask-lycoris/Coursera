@@ -11,7 +11,10 @@ The process of sofware failing out of step with the environment
 リストアスケジュールを設定したり、データをマスタデータセットと比較したりするスクリプトを作成することで
 このテストプロセスを自動化することが可能
 問題にフラグを立てるだけでなく、適切な自動化を行うことが重要。
-自動化は自動化を節約し、ミスを減らすが、その仕様から生じる可能性のある落とし穴を避けるために慎重に適用する必要がある。  
+自動化は自動化を節約し、ミスを減らすが、その仕様から生じる可能性のある落とし穴を避けるために慎重に適用する必要がある。
+Detect dangerously high CPU usage levels across a network and scale back the CPU clock speeds of those devices, or shut them down to prevent overheating.
+ネットワーク全体のCPU使用率が危険なほど高いレベルを検出し、それらのデバイスのCPUクロック速度を下げたり、過熱を防ぐためにシャットダウンしたりします。
+
 ---> ジョブインタビューに使えそうだ。
 
 
