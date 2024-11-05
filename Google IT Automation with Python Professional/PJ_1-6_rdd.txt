@@ -1,0 +1,42 @@
+## Situation:
+## A person who is working as a infrastructure engineer needs to collect infomation about the user current logged in
+## and which machines are uses at that time, finally make a report(documentation) to CEO.
+
+Attributes
+* Data
+* User
+* Machine
+* Type
+
+Event types
+* login
+* logout
+
+Formatting the document look like is easy, so skip that part at the first.
+Focus on making the program work.
+
+Program
+誰が現在ログインしているか？　→　ログインした履歴があり、まだログアウトしていない人間
+How you recognize which user is currently users logged in?
+Dictionaryを用いて、各マシンをキーとして、valueにログインしているユーザを追加したり削除したりといった挙動が良い。
+
+必要な機能 (=関数)
+In order to avoid modifying and fixing bugs, we have to consider functions you need.
+Thinking about both what functions you need and what kind of return values you would be happy to receive as a set.
+
+def get_event_data(event):
+return event.date
+
+def current_users(events):
+return machine
+
+def generate_report(machines):
+return machines, users
+
+def provide_pdf(machines, users):
+return documentation
+
+
+further
+Error handling
+ログインしていないのにログアウトしているユーザがいる場合
