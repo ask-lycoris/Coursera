@@ -3,9 +3,15 @@
 The Pareto Principle states that 20% of the system administration tasks you perform are responsible for 80% of your workload.
 Therefore, identifying and automating those tasks will put your productivity through the roof!
 
-Bit-rot
+* Bit-rot
 The process of sofware failing out of step with the environment
 予想しない環境の変化により既存のスクリプトがこれまでどおりに動かない問題が起きること
-→ 復元されたデータが期待したバックアップの通りなのか定期的に調査する必要がある!!　　
+アラートを担当者に出すシステムにするのも解決策の一つではあるが、
+→ 復元されたデータが期待したバックアップの通りなのか定期的に調査する必要がある。
 リストアスケジュールを設定したり、データをマスタデータセットと比較したりするスクリプトを作成することで
 このテストプロセスを自動化することが可能
+問題にフラグを立てるだけでなく、適切な自動化を行うことが重要。
+自動化は自動化を節約し、ミスを減らすが、その仕様から生じる可能性のある落とし穴を避けるために慎重に適用する必要がある。  
+---> ジョブインタビューに使えそうだ。
+
+
