@@ -1,3 +1,5 @@
+Python Build-in Functions [https://docs.python.org/3/library/functions.html#built-in-functions]
+
 パレートの原則では、システム管理タスクの20％が作業負荷の80％を占めているとされています。
 したがって、これらのタスクを特定し、自動化することで、生産性が飛躍的に向上します！
 The Pareto Principle states that 20% of the system administration tasks you perform are responsible for 80% of your workload.
@@ -27,15 +29,3 @@ amount_of_times_done: プロセスが1週間に実行される回数（1回と�
 time_to_automate: 自動化プロセスにかかる時間（12時間） = 12h
 銀行がプロセス短縮を開始するまでに何週間かかるか？
 12 / 0.8333 = 14.45 = 15 週間
-
-
-Python Build-in Functions [https://docs.python.org/3/library/functions.html#built-in-functions]
-
-* open(x,x) function
-r:  read only (default)
-w:  write only    ---> noted!! the previous file will be overwrited which means get deleted as soon as we open the file, so better to use append mode with log files.
-a:  append
-r+: read or write  ---> noted!! ??? なにが注意すべき点か言及されていなかった気がする。
-x:  open for exclusive creation, failing if the file already exists
-なんかもうちょっと詳しく勉強したいなここ
-(ref: https://docs.python.org/3/library/functions.html#open)
