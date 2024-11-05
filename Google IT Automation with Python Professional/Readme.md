@@ -11,8 +11,8 @@ What I learned
 
 |number|content|explanation|
 |---|---|---|
-| `course1` Crach Course on Python | xxx |
-| `course2` Using Python to Interact with the Operationg System | xxx |
+| `course1` Crach Course on Python | fundamental python coding <tr> dictionary, list, for, while, errorhandling |
+| `course2` Using Python to Interact with the Operationg System | commands, package managementsystem, |
 | `course3` Introduction to Git and GitHub | xxx |
 | `course4` Troubleshootingand Debugging Techniques | xxx |
 | `course5` Configuration Management and the Cloud | xxx |
