@@ -1,3 +1,6 @@
+Environment
+[Google collaboratory](URL: https://colab.google/)
+Curriculum
 [Coursera](URL: https://www.coursera.org/professional-certificates/google-it-automation "Top page")
 
 What I learned
