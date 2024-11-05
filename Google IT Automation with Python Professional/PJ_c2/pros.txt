@@ -1,4 +1,0 @@
-パレートの原則では、システム管理タスクの20％が作業負荷の80％を占めているとされています。
-したがって、これらのタスクを特定し、自動化することで、生産性が飛躍的に向上します！
-The Pareto Principle states that 20% of the system administration tasks you perform are responsible for 80% of your workload.
-Therefore, identifying and automating those tasks will put your productivity through the roof!
