@@ -1,4 +1,14 @@
-# Creating Initial clients file
+# Python Build-in Functions [https://docs.python.org/3/library/functions.html#built-in-functions]
+# * open(x,x) function [https://docs.python.org/3/library/functions.html#open]
+
+# r:  read only (default)
+# w:  write only    ---> noted!! the previous file will be overwrited which means get deleted as soon as we open the file, so better to use append mode with log files.
+# a:  append
+# r+: read or write  ---> noted!! ??? なにが注意すべき点か言及されていなかった気がする。
+# x:  open for exclusive creation, failing if the file already exists
+# なんかもうちょっと詳しく勉強したいなここ
+
+ # Creating Initial clients file
 guests = open("guests.txt", "w")
 initial_guests = ["Bob", "Andrea", "Manuel", "Polly", "Khalid"]
 
