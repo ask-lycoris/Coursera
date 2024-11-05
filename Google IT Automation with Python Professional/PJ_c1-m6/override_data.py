@@ -57,3 +57,8 @@ with open('events.csv', 'w') as file:
     file.write(content)
 
 print("ファイルに書き込みました。")
+
+# 中身確認
+with open(csv_file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+        print(content)
