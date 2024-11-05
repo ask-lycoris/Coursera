@@ -7,6 +7,7 @@ Python Package Index（PyPI）から簡単にパッケージをインストー�
 依存関係の含めて自動的にインストールしてくれる。pipはPythonの仮想環境（venvやvirtualenv）と組み合わせて使用されることが一般的です。  
 これにより、プロジェクトごとに異なるパッケージやバージョンを管理できます。
 ---> dockerが主流になった今、必要性に疑問...??? ローカル環境下ではdocker buildより迅速にインストール可能である。
+Use requirements files: To document and manage your project's dependencies, create a requirements.txt file. This file lists all the libraries and their versions. You can generate it using pip freeze > requirements.txt and later install them in a new environment using pip install -r requirements.txt.
 
 homebrew
 macOSやLinux用のパッケージ管理システム。依存関係も含めて解決してくれる。
@@ -16,3 +17,19 @@ apt: for debian (ubuntu, kali, mint)
 yum: for redhat (centOS...)
 dnf: for Fedra
 
+shebang  
+最初の行にshebang(#!)を挿入することでOSにスクリプト実行コマンドを教える
+Inserting a shebang line (such as #!/usr/bin/env python3) as the first line tells the operating system what command we want to use to execute the script.
+
+PATH  
+The PATH variable tells the operating system where to find executables.  
+環境変数の1つでOSがプログラムやコマンドを見つけるために使う。 echo $PATH で確認可能。
+パスの変更は 
+スクリプト設定ファイルであれば  
+export PATH=$PATH:/path/to/directory  
+コマンドラインであれば  
+set PATH=%PATH%;C:\path\to\directory  
+こんな感じ。
+
+例えば、ターミナルやコマンドプロンプトでpythonと入力したとします。このとき、システムはPATHに設定されたディレクトリを順番に探し、pythonという名前のプログラムがどこにあるかを確認します。
+効率的な検索: PATHが設定されていることで、フルパス（例: /usr/bin/python）を入力せずにコマンドを実行できるため、作業が効率的になります。
