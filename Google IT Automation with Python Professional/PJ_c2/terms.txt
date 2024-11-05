@@ -17,4 +17,6 @@ Detect dangerously high CPU usage levels across a network and scale back the CPU
 
 ---> ジョブインタビューに使えそうだ。
 
+Forensic value
+自動化スクリプトが行うすべてのアクションを適切にログに記録することでデバッキング中に得られる価値のこと
 
