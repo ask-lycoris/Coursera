@@ -18,7 +18,7 @@ Detect dangerously high CPU usage levels across a network and scale back the CPU
 ---> ジョブインタビューに使えそうだ。
 
 Forensic value
-自動化スクリプトが行うすべてのアクションを適切にログに記録することでデバッキング中に得られる価値のこと  
+自動化スクリプトが行うすべてのアクションを適切にログに記録することでデバッキング中に得られる価値のこと
 
 ??計算問題??
 ある銀行会社が、毎週約50分かかっている社内プロセスの自動化を検討しています。自動化プロセスの完了には合計12時間かかります。銀行会社がプロセスの時間短縮を開始するまでに何週間かかりますか?  
@@ -29,3 +29,13 @@ time_to_automate: 自動化プロセスにかかる時間（12時間） = 12h
 12 / 0.8333 = 14.45 = 15 週間
 
 
+Python Build-in Functions [https://docs.python.org/3/library/functions.html#built-in-functions]
+
+* open(x,x) function
+r:  read only (default)
+w:  write only    ---> noted!! the previous file will be overwrited which means get deleted as soon as we open the file, so better to use append mode with log files.
+a:  append
+r+: read or write  ---> noted!! ??? なにが注意すべき点か言及されていなかった気がする。
+x:  open for exclusive creation, failing if the file already exists
+なんかもうちょっと詳しく勉強したいなここ
+(ref: https://docs.python.org/3/library/functions.html#open)
