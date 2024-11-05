@@ -1,15 +1,19 @@
 # 実際の使用を想定して、以下の修正を加えてみた。
 # 1. pdfのレイアウトを修正する関数を別のファイルから呼び出して使う (gen_pdf.py)
 # 2. 提供される event data は外部から excel の形として、それをimportして処理する (events.csv)
+# csvの取り込みは csvライブラリ or pandasライブラリがあるが、ここでは小規模なので高速な処理の前者を採用する。
+# んーなんかエラーになるなぁ。。。
 
 !pip install reportlab
 
 from datetime import datetime
-from event_data import event_data
-from pdf_report import create_pdf_report
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 import csv
 # 異なるファイルからユーザ関数を呼び出し
 from gen_pdf import provide_pdf
+
+csv_file = 'events.csv'
 
 class Event:
     def __init__(self, event_date, event_type, machine_name, user):
@@ -47,7 +51,16 @@ def generate_report(current_users):
             user_list = ", ".join(users)
             print (f"{machine}: {user_list}")
 
+events = []
 
+try:
+    with open(csv_file_path, 'r', encoding='utf-8')as file:
+        for row in csv.DictReader(file):
+            events.append(row)
+except FileNotFoundError:
+    print(f"{csv_file_path} cannot be found.")
+except Exception as e:
+    print(f"Error: {e}")
 
 # Executed current data of users logged in
 current_users = process_events(events)
