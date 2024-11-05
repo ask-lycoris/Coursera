@@ -3,9 +3,8 @@
 ### 次のコードは、ジョージ・バーナード・ショーの有名な引用を、オブジェクトを使って人々を表しています。
 ### コードが引用文に記述された動作を満たすように、空白を埋めてください。 
 
-# “If you have an apple and I have an apple and we exchange these apples then
-# you and I will still each have one apple. But if you have an idea and I have
-# an idea and we exchange these ideas, then each of us will have two ideas.”
+# “If you have an apple and I have an apple and we exchange these apples then you and I will still each have one apple.
+# But if you have an idea and I have an idea and we exchange these ideas, then each of us will have two ideas.”
 # George Bernard Shaw
 
 class Person:
@@ -21,10 +20,9 @@ martin.apples = 2
 martin.ideas = 1
 
 def exchange_apples(you, me):
-#Here, despite G.B. Shaw's quote, our characters have started with       #different amounts of apples so we can better observe the results. 
+#Here, despite G.B. Shaw's quote, our characters have started with the different amounts of apples so we can better observe the results. 
 #We're going to have Martin and Johanna exchange ALL their apples with #one another.
-#Hint: how would you switch values of variables, 
-#so that "you" and "me" will exchange ALL their apples with one another?
+#Hint: how would you switch values of variables, so that "you" and "me" will exchange ALL their apples with one another?
 #Do you need a temporary variable to store one of the values?
 #You may need more than one line of code to do that, which is OK. 
     tmp = me.apples
@@ -34,10 +32,8 @@ def exchange_apples(you, me):
     
 def exchange_ideas(you, me):
     #"you" and "me" will share our ideas with one another.
-    #What operations need to be performed, so that each object receives
-    #the shared number of ideas?
-    #Hint: how would you assign the total number of ideas to 
-    #each idea attribute? Do you need a temporary variable to store 
+    #What operations need to be performed, so that each object receives the shared number of ideas?
+    #Hint: how would you assign the total number of ideas to each idea attribute? Do you need a temporary variable to store 
     #the sum of ideas, or can you find another way? 
     #Use as many lines of code as you need here.
     total_idea = you.ideas + me.ideas
