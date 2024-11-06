@@ -22,4 +22,10 @@ print(re.search(r"p?each", "I like peaches"))  # <_sre.SRE_Match object; span=(7
 # マッチが見つからなかった場合は None を返す。
 # "+" = 正規表現において1回以上の繰り返しを表す量指定子、直前の要素が1回以上連続して出現することを示す
 
+try:
+  print(re.search(r"[aA]++", "banana"))     # ---> '++'という形は正規表現の文法には存在しない！
+except:
+  pass
+
+print(re.search(r"[aA].*[aA]", "pineapple"))
 
