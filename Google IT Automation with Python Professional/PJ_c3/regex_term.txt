@@ -1,0 +1,23 @@
+re module
+regex
+grep
+
+"." is a wildcard in regex, so can be replaced any other character. It is categorized as a meta character.
+^ (hut/caret/circumflex) 行頭一致    ex. grep ^fruit /usr/share/dict/words ---> fruitxx words
+$ (doller) 末尾一致                  ex. grep it$ /usr/share/dict/words    ---> xxxit words
+
+混同するwords
+☆ 正規表現という文脈の中での違い
+正規表現
+文字列のパターンを定義するための強力なツールです。特定の文字列の形式や構造を指定できる
+テキストの検索、置換、バリデーションなどに広く使用
+
+  - ワイルドカード
+  特定の文字や文字列を置き換えるための特別な文字、特定の文字や文字列を表すためのシンプルな記号
+  正規表現の一部として使うこともあるが、一般的にはファイル検索や簡単なパターンマッチングに使用(ファイル名検索)
+  - メタ文字
+  メタ文字は、正規表現の中で特別な意味を持つ文字
+  正規表現でパターンを構築する際に使用(パターン構築)
+  - 予約文字
+  予約文字は、特定の文脈やプログラミング言語で特別な意味を持つ文字
+  これらは通常、特定の機能を果たすために予約されているため、通常の文字として扱うことができない(行先頭や末尾を表す)
