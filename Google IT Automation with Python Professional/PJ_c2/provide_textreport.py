@@ -13,12 +13,13 @@
 import csv
 
 def read_employees(csv_file_location):
-   # register_dialectメソッド from csvモジュール
+  # register_dialectメソッド from csvモジュール
   # 異なるCSV形式に対し、特定のフォーマット(Dialect)を簡単に定義することで可読性や保守性を向上させ、再利用することを可能にする。
   # CSVファイルは","や";"など区切り文字がバラバラ。この場合、delimiterパラメータなどを使用することで各ファイル形式に合わせた設定を登録することが可能。
   csv.register_dialect('empDialect', skipinitialspace=True, strict=True)
   # 第1引数=ダイアレクト名登録, 第2引数=カンマ後の空白無視, 第3引数=CSVファイルが正しい形式であることを確認 ---> 予期しないデータの読み込みを防ぐ
   csv.register_dialect('empDialect', skipinitialspace=True, strict=True)
+  # csv.DictReader() = 指定されたCSVファイルを読み込み、各行を辞書形式で保管する
   employee_file = csv.DictReader(open(csv_file_location), dialect = 'empDialect')
   employee_list = []
   for data in employee_file:
