@@ -27,7 +27,7 @@ def contents_of_file(filename):
       name, color, type = row["name"], row["color"], row["type"]
       # Format the return string for data rows only
 
-      return_string += "a {} {} is {}\n".format(name, color, type)
+      return_string += "a {} {} is {}\n".format(colour, name, type)
   return return_string
 
 #Call the function
