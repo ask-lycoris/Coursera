@@ -1,10 +1,10 @@
 # csv means CommaSeparated Values
 # CSVファイルの各行は通常1つのデータレコードを表し、各フィールドは","で区切られる
 import csv
-# Creating csv file in list
+# PJ1: Creating csv file from list
 host = [["Sabrina Green","802-867-5309","System Administrator"], ["Eli Jones","684-3481127","IT specialist"], 
          ["Melody Daniels","846-687-7436"," Programmer"], ["Charlie Rivera","698-746-3357","Web Developer"]]
-# Creating csv file in dictionary
+# PJ2: Creating csv file from dictionary
 users = [{"name": "Sol Mansi", "username": "solm", "department": "IT infrastructure"}, 
           {"name": "Lio Nelson", "username": "lion", "department": "User Experience Research"}, 
           {"name": "Charlie Grey", "username": "greyc", "department": "Development"}]
