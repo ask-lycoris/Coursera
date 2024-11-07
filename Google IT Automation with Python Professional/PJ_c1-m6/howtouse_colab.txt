@@ -1,0 +1,11 @@
+Google colabでは、コマンドラインからエディタ開いたりできないので、下記のスクリプトのcontentsの箇所に
+ソースコードの中身べた貼りして実行することでコマンドラインからスクリプトソースファイルを作成してね
+
+contents = """
+
+
+"""
+
+  with open('gen_pdf.py', 'w') as file:
+  file.write(content)
+print("ファイルに書き込みました。")
