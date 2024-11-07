@@ -3,7 +3,7 @@ import re
 
 def check_punctuation (text):
   ### 英数字以外ならヒット
-  result = re.search(r"[^a-zA-Z0-9]", text)
+  result = re.search(r"[^a-zA-Z0-9]", text) # 引数の r"xxx" の最初のrはRaw stringsの r である。
   ### 句読点が含まれるならヒット
   result2 = re.search(r"[,\.;!?]", text) # ---> ポイントは、ドットワイルドカードを\(エスケープ)する点。
   return result2 != None
