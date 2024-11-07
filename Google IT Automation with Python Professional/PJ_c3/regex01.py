@@ -1,3 +1,4 @@
+# Regex expression 正規表現
 import re
 
 def check_punctuation (text):
@@ -24,6 +25,7 @@ print(re.search(r"p?each", "I like peaches"))  # <_sre.SRE_Match object; span=(7
 # 正規表現における量指定子
 # '+' = 直前の要素が1回以上連続して出現することを示す
 # '*' = 直前の要素が0回以上連続して出現することを示す
+# '.' = 改行を除いた任意の1文字を示す
 
 try:
   print(re.search(r"[aA]++", "banana"))     # ---> '++'という形は正規表現の文法には存在しない！
@@ -46,7 +48,7 @@ print(re.findall(r'\w+', "Hello, world!! 12-34_abc?$?DEF"))   # ['Hello', 'world
 # 正規表現の各部分についての詳細な説明が表示され、特定のエスケープシーケンスや構文の意味が理解できる
 # 使用しているプログラミング言語に合わせた正規表現のコードスニペットを生成する
 
-# Quiz: 1つ以上の空白文字で区切られた少なくとも2つの英数字（文字、数字、アンダースコアを含む）グループを持っているか
+# Quiz1: 1つ以上の空白文字で区切られた少なくとも2つの英数字（文字、数字、アンダースコアを含む）グループを持っているか
 # 字面だけ追ってると、条件が良くわからんな。どういうケースをマッチ対象としたいのか先に具体例をいくつか示された方が書けそう...。
 def check_character_groups(text):
   result = re.search(r"\w+\s+\w+", text)
@@ -57,3 +59,21 @@ print(check_character_groups("One")) # False
 print(check_character_groups("123    Ready Set GO")) # True
 print(check_character_groups("username user_01")) # True
 print(check_character_groups("shopping_list: milk, bread, eggs.")) # False
+
+# Quiz2: 標準的な文かどうか
+def check_sentence(text):
+  result = re.search(r"^[A-Z].*[.!?]$", text)
+  return result != None
+
+# 下記両者は異なる概念！だが、両方で使用される記号 「?」「*」「.」があるからややこしい
+### Wildcard ###
+# 主にファイルやフォルダ操作に使用。コマンドラインやファイル検索で使用する = だから「.」だけ該当外になってるのだと思う
+# ex. *.txt      ---> <任意の0文字以上の文字列> + .txt     = すべての.txt拡張子がマッチ
+#     ワイルドカードでの文脈で「.」は存在しないと考えてよい！
+#     file?.txt  ---> file + <任意の1文字> + .txt         = 'fileA.txt' などがマッチ
+  
+### Regex ###
+# プログラミングやテキスト処理で使用。文字列パターン検索で使用する。
+# ex. ab*c       ---> 直前の文字が0以上出現する             = 'ac','abc','abbbc'などがマッチ
+#     a.b        ---> a + <任意の1文字> + b                = 'acb','a1b','a!b'などがマッチ、'ab'や'a\nb'はマッチしない 
+#     colou?r    ---> 直前の文字が 0回 or 1回 のみ出現する   = 'color','colour'などがマッチ、'colouur'はマッチしない
