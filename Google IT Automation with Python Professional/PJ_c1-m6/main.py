@@ -7,8 +7,8 @@
 !pip install reportlab
 
 from datetime import datetime
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
+# from reportlab.lib.pagesizes import letter
+# from reportlab.pdfgen import canvas
 import csv
 # 異なるファイルからユーザ関数を呼び出し
 from gen_pdf import provide_pdf
@@ -22,12 +22,11 @@ class Event:
         self.machine = machine_name
         self.user = user
 
-def get_event_date(event):  # これがある理由が分からない
+def get_event_date(event):  ## これがある理由が分からない
     return event.date
 
-# event.date を取り出すために行なう処理
 def process_events(events):
-    # イベントの時系列ソート (= events の各要素 event に keyを作用させた結果の値でソート)
+    # イベントを時系列に並べ替え
     events.sort(key=get_event_date)
     # events.sort(key=event.date)じゃだめなのか？
     # → event.date は Event クラスのインスタンスの属性で、events リスト内の各要素が Event インスタンスであるため、
@@ -52,34 +51,34 @@ def generate_report(current_users):
             user_list = ", ".join(users)
             print (f"{machine}: {user_list}")
 
-def provide_pdf(current_users, filename='report.pdf'):
-    c = canvas.Canvas(filename, pagesize=letter)
-    width, height = letter
+# def provide_pdf(current_users, filename='report.pdf'):
+#     c = canvas.Canvas(filename, pagesize=letter)
+#     width, height = letter
 
-    c.setFont("Helvetica-Bold", 12)
-    c.drawString(100, height - 80, "Server Name")
-    c.drawString(300, height - 80, "Logged In User")
+#     c.setFont("Helvetica-Bold", 12)
+#     c.drawString(100, height - 80, "Server Name")
+#     c.drawString(300, height - 80, "Logged In User")
 
-    c.setFont("Helvetica-Bold", 16)
-    c.drawString(100, height - 50, "Current logged in user Report")
+#     c.setFont("Helvetica-Bold", 16)
+#     c.drawString(100, height - 50, "Current logged in user Report")
 
-    c.setFont("Helvetica", 12)
-    y_position = height - 100  # 初期Y位置
+#     c.setFont("Helvetica", 12)
+#     y_position = height - 100  # 初期Y位置
 
-    for machine, users in current_users.items():
-        if users:  # ユーザーがいる場合のみ出力
-            user_list = ", ".join(users)
-            c.drawString(100, y_position, f"{machine}: {user_list}")
-            y_position -= 20  # 次の行のY位置を下げる
+#     for machine, users in current_users.items():
+#         if users:  # ユーザーがいる場合のみ出力
+#             user_list = ", ".join(users)
+#             c.drawString(100, y_position, f"{machine}: {user_list}")
+#             y_position -= 20  # 次の行のY位置を下げる
 
-            # ページの下部に達した場合、新しいページを作成
-            if y_position < 50:
-                c.showPage()
-                c.setFont("Helvetica", 12)
-                c.drawString(100, height - 80, "Server Name")
-                c.drawString(300, height - 80, "Logged In User")
-                y_position = height - 100  # Y位置をリセット
-    c.save()
+#             # ページの下部に達した場合、新しいページを作成
+#             if y_position < 50:
+#                 c.showPage()
+#                 c.setFont("Helvetica", 12)
+#                 c.drawString(100, height - 80, "Server Name")
+#                 c.drawString(300, height - 80, "Logged In User")
+#                 y_position = height - 100  # Y位置をリセット
+#     c.save()
 
 events = []
 
