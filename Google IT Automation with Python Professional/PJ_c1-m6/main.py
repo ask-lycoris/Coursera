@@ -83,13 +83,13 @@ def provide_pdf(current_users, filename='report.pdf'):
 events = []
 
 try:
-    with open(csv_file_path, 'r', encoding='utf-8') as file:
+    with open(csv_file, 'r', encoding='utf-8') as file:
         reader = csv.reader(file)    
         # 各行をリストに追加
         for row in reader:
             events.append(row)
 except FileNotFoundError:
-    print(f"{csv_file_path} cannot be found.")
+    print(f"{csv_file} cannot be found.")
 except Exception as e:
     print(f"Error: {e}")
 
