@@ -11,7 +11,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import csv
 # 異なるファイルからユーザ関数を呼び出し
-#from gen_pdf import provide_pdf
+from gen_pdf import provide_pdf
 
 csv_file = 'events.csv'
 
@@ -22,11 +22,12 @@ class Event:
         self.machine = machine_name
         self.user = user
 
-def get_event_date(event):  ## これがある理由が分からない
+def get_event_date(event):  # これがある理由が分からない
     return event.date
 
+# event.date を取り出すために行なう処理
 def process_events(events):
-    # イベントを時系列に並べ替え
+    # イベントの時系列ソート (= events の各要素 event に keyを作用させた結果の値でソート)
     events.sort(key=get_event_date)
     # events.sort(key=event.date)じゃだめなのか？
     # → event.date は Event クラスのインスタンスの属性で、events リスト内の各要素が Event インスタンスであるため、
