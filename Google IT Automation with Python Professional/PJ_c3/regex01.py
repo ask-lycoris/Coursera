@@ -29,3 +29,13 @@ except:
 
 print(re.search(r"[aA].*[aA]", "pineapple"))
 
+# escape sequence
+print(re.findall(r'\w+', "Hello, world!! 12-34_abc?$?DEF"))   # ['Hello', 'world', '12', '34_abc', 'DEF']
+# \n: newline 改行
+# \t: Tab
+# \w: word 英数字(a-zA-Z0-9)とアンダースコア(_)
+# \W: not \w
+# \d: digit 数字(0-9)
+# \D: not \d
+# \s: space 空白文字(Space, Tab, 改行)
+# \S: not \s
