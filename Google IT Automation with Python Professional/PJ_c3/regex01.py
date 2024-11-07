@@ -7,6 +7,7 @@ def check_punctuation (text):
   result2 = re.search(r"[,\.;!?]", text) # ---> ポイントは、ドットワイルドカードを\(エスケープ)する点。
   return result2 != None
 
+# samples
 print(check_punctuation("This is a sentence that ends with a period.")) # True
 print(check_punctuation("This is a sentence fragment without a period")) # False
 print(check_punctuation("Aren't regular expressions awesome?")) # True
@@ -39,3 +40,15 @@ print(re.findall(r'\w+', "Hello, world!! 12-34_abc?$?DEF"))   # ['Hello', 'world
 # \D: not \d
 # \s: space 空白文字(Space, Tab, 改行)
 # \S: not \s
+
+# Quiz: 1つ以上の空白文字で区切られた少なくとも2つの英数字（文字、数字、アンダースコアを含む）グループを持っているか
+# 字面だけ追ってると、条件が良くわからんな。どういうケースをマッチ対象としたいのか先に具体例をいくつか示された方が書けそう...。
+def check_character_groups(text):
+  result = re.search(r"\w+\s+\w+", text)
+  return result != None
+
+# samples
+print(check_character_groups("One")) # False
+print(check_character_groups("123    Ready Set GO")) # True
+print(check_character_groups("username user_01")) # True
+print(check_character_groups("shopping_list: milk, bread, eggs.")) # False
