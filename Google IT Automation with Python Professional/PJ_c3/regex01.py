@@ -30,7 +30,7 @@ except:
 
 print(re.search(r"[aA].*[aA]", "pineapple"))
 
-# escape sequence
+# Escape Sequence
 print(re.findall(r'\w+', "Hello, world!! 12-34_abc?$?DEF"))   # ['Hello', 'world', '12', '34_abc', 'DEF']
 # \n: newline 改行
 # \t: Tab
@@ -40,6 +40,9 @@ print(re.findall(r'\w+', "Hello, world!! 12-34_abc?$?DEF"))   # ['Hello', 'world
 # \D: not \d
 # \s: space 空白文字(Space, Tab, 改行)
 # \S: not \s
+# ref[https://regex101.com/]   ---> 正規表現の解析サイト
+# 正規表現の各部分についての詳細な説明が表示され、特定のエスケープシーケンスや構文の意味が理解できる
+# 使用しているプログラミング言語に合わせた正規表現のコードスニペットを生成する
 
 # Quiz: 1つ以上の空白文字で区切られた少なくとも2つの英数字（文字、数字、アンダースコアを含む）グループを持っているか
 # 字面だけ追ってると、条件が良くわからんな。どういうケースをマッチ対象としたいのか先に具体例をいくつか示された方が書けそう...。
