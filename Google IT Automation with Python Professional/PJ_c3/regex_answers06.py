@@ -1,4 +1,4 @@
-### 未解決！L2を満たさない。
+### 未解決！L2を満たさない。けど、なんかこれで正解になったぞ。解答間違ってんのか？
 
 # Quiz: An intern implemented a zip code checker, but it works only with five-digit zip codes.
 # Your task is to update the checker so that it includes all nine digits of the zip code; the leading five digits
