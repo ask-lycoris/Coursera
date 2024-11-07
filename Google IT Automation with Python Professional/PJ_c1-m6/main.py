@@ -84,10 +84,19 @@ events = []
 
 try:
     with open(csv_file, 'r', encoding='utf-8') as file:
-        reader = csv.reader(file)    
-        # 各行をリストに追加
+        reader = csv.reader(file)
+        # 上記readerには [' ',' ',' ',' '] とリストが格納されている
+        # 各行を *Eventインスタンスに変換して* リストに追加
         for row in reader:
-            events.append(row)
+        # このEventインスタンスに変換する工程が大事！
+        # これがないと単にcsvから読み込んだ文字列データをeventsに突っ込むだけになっててAttribute Error(属性エラー)となる
+            if len(row) == 4:  # 必要なカラム数を確認
+                # アンパッキング：リストやタプルなどのコレクションから要素を個別の変数に分解して割り当てる操作。
+                # 左と右の変数数が一致している必要がある。一致しない時は'ValueError'が生じる。
+                event_date, event_type, machine_name, user = row
+                # インスタンス化
+                event = Event(event_date, event_type, machine_name, user)
+                events.append(event)
 except FileNotFoundError:
     print(f"{csv_file} cannot be found.")
 except Exception as e:
