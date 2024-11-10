@@ -40,3 +40,4 @@ return documentation
 further
 Error handling
 ログインしていないのにログアウトしているユーザがいる場合
+次にやることは、csv形式かdataframe型で入ってきたデータを決まったサンプルの表やグラフに落とし込み、pdfとして出力させる機能を追加実装する。
