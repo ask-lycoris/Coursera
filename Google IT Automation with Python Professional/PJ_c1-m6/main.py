@@ -13,7 +13,7 @@ csv_file = 'events.csv'
 
 class Event:
     def __init__(self, event_date, event_type, machine_name, user):
-        self.date = datetime.strptime(event_date, '%Y-%m-%d %H:%M:%S')　　# 日付をdatetimeオブジェクトに変換
+        self.date = datetime.strptime(event_date, '%Y-%m-%d %H:%M:%S')  # 日付をdatetimeオブジェクトに変換
         self.type = event_type
         self.machine = machine_name
         self.user = user
