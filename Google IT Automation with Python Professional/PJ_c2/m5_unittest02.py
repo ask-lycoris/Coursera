@@ -1,4 +1,4 @@
-# ネーミングの慣習は、「<対象となる関数>_test」とする。
+# The name of test scripts should be 「<target function>_test」 by convention.
 
 # sample code「rearrange.py」
 
@@ -16,7 +16,7 @@ def rearrange_name(name):
 import unittest
 from rearrange import rearrange_name
 
-# 各テストクラス名は Test で始めること。クラスで定義したプレフィックス Test... で始まるメソッドはすべて自動的にテストフレームワークで実行できるテストとなる。
+# The name of class should be Test..., prefix. All methods begin with Test will be executed automatically in test framework.
 class TestRearrange(unittest.TestCase):
     
   def test_basic(self):
