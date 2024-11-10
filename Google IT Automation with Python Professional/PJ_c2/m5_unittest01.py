@@ -40,7 +40,7 @@
 # cake_price = cake.check_price()
 # cake_ingredients, cake_price
 
-# 上記のコードに対するunittest
+# How to write unittest
 import unittest
 
 class TestCakeFactory(unittest.TestCase):
