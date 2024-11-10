@@ -2,13 +2,9 @@
 # 1. pdfのレイアウトを修正する関数を別のファイルから呼び出して使う (gen_pdf.py)
 # 2. 提供される event data は外部から excel の形として、それをimportして処理する (events.csv)
 # csvの取り込みは csvライブラリ or pandasライブラリがあるが、ここでは小規模なので高速な処理の前者を採用する。
-# んーなんかエラーになるなぁ。。。
-
 !pip install reportlab
 
 from datetime import datetime
-# from reportlab.lib.pagesizes import letter
-# from reportlab.pdfgen import canvas
 import csv
 # 異なるファイルからユーザ関数を呼び出し
 from gen_pdf import provide_pdf
@@ -17,7 +13,7 @@ csv_file = 'events.csv'
 
 class Event:
     def __init__(self, event_date, event_type, machine_name, user):
-        self.date = datetime.strptime(event_date, '%Y-%m-%d %H:%M:%S')  # 日付をdatetimeオブジェクトに変換
+        self.date = datetime.strptime(event_date, '%Y-%m-%d %H:%M:%S')　　# 日付をdatetimeオブジェクトに変換
         self.type = event_type
         self.machine = machine_name
         self.user = user
@@ -31,7 +27,7 @@ def process_events(events):
     # events.sort(key=event.date)じゃだめなのか？
     # → event.date は Event クラスのインスタンスの属性で、events リスト内の各要素が Event インスタンスであるため、
     # 直接 event.date を使うことはできない。
-    
+
     current_users = {}  # 現在ログインしているユーザーを保持する辞書
 
     for event in events:
@@ -51,56 +47,36 @@ def generate_report(current_users):
             user_list = ", ".join(users)
             print (f"{machine}: {user_list}")
 
-# def provide_pdf(current_users, filename='report.pdf'):
-#     c = canvas.Canvas(filename, pagesize=letter)
-#     width, height = letter
-
-#     c.setFont("Helvetica-Bold", 12)
-#     c.drawString(100, height - 80, "Server Name")
-#     c.drawString(300, height - 80, "Logged In User")
-
-#     c.setFont("Helvetica-Bold", 16)
-#     c.drawString(100, height - 50, "Current logged in user Report")
-
-#     c.setFont("Helvetica", 12)
-#     y_position = height - 100  # 初期Y位置
-
-#     for machine, users in current_users.items():
-#         if users:  # ユーザーがいる場合のみ出力
-#             user_list = ", ".join(users)
-#             c.drawString(100, y_position, f"{machine}: {user_list}")
-#             y_position -= 20  # 次の行のY位置を下げる
-
-#             # ページの下部に達した場合、新しいページを作成
-#             if y_position < 50:
-#                 c.showPage()
-#                 c.setFont("Helvetica", 12)
-#                 c.drawString(100, height - 80, "Server Name")
-#                 c.drawString(300, height - 80, "Logged In User")
-#                 y_position = height - 100  # Y位置をリセット
-#     c.save()
-
 events = []
 
+# try 内でエラー（例外）が発生すると、Python はその時点での処理を中断し、対応する except blockを探す。
 try:
     with open(csv_file, 'r', encoding='utf-8') as file:
         reader = csv.reader(file)
+        # このまま実行すると、timestampのunmatch errorが出力されてしまう。これはcsvファイルのヘッダーも読み込まれているからである。
+        # 下記のように最初の行はスキップするように修正する必要がある。
+        next(reader)
         # 上記readerには [' ',' ',' ',' '] とリストが格納されている
-        # 各行を *Eventインスタンスに変換して* リストに追加
+        # 各行を *Eventインスタンスに変換して* リストに追加していく
         for row in reader:
-        # このEventインスタンスに変換する工程が大事！
-        # これがないと単にcsvから読み込んだ文字列データをeventsに突っ込むだけになっててAttribute Error(属性エラー)となる
-            if len(row) == 4:  # 必要なカラム数を確認
-                # アンパッキング：リストやタプルなどのコレクションから要素を個別の変数に分解して割り当てる操作。
-                # 左と右の変数数が一致している必要がある。一致しない時は'ValueError'が生じる。
-                event_date, event_type, machine_name, user = row
-                # インスタンス化
-                event = Event(event_date, event_type, machine_name, user)
-                events.append(event)
+          # この後に実行するインスタンス化に伴い、左と右の変数数が一致している必要がある。
+          # 一致しない時は'ValueError'が生じるため、ここでエラーハンドリングしておく。
+          if len(row) != 4:  # 必要なカラム数を確認
+              print(f"Row does not contain 4 columns: {row}")
+              continue  # 行をスキップ
+          else:
+              # アンパッキング：リストやタプルなどのコレクションから要素を個別の変数に分解して割り当てる操作。  
+              event_date, event_type, machine_name, user = map(str.strip, row)
+              # Eventを使用してeventをインスタンス化する！この変換する工程が大事！
+              # これがないと単にcsvから読み込んだ文字列データをeventsに突っ込むだけになっててAttribute Error(属性エラー)となる
+              event = Event(event_date, event_type, machine_name, user)
+              # eventsリストにインスタンス化したeventを追加
+              events.append(event)
 except FileNotFoundError:
     print(f"{csv_file} cannot be found.")
+
 except Exception as e:
-    print(f"Error: {e}")
+    print(f"Error processing row {row}: {e}")
 
 # Executed current data of users logged in
 current_users = process_events(events)
