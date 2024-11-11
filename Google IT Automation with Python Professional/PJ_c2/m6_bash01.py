@@ -1,7 +1,7 @@
 # Google colab内で他の言語を使用する際は、「%%(=マジックコマンド)」を先頭につけて '%%javascript' のように指定するとその言語で動かしてくれる。
 %%bash
 
-# sample1
+### sample1
 echo "Starting at: $(date)"
 echo
 
@@ -34,7 +34,7 @@ echo "Finishing at: $(date)"
 
 # Finishing at: Mon Nov 11 12:37:12 PM UTC 2024
 
-# sample2
+### sample2
 line="-------------------------------------------------"
 
 # $<variable>は格納した変数を適用してくれる
@@ -57,7 +57,7 @@ echo "UPTIME"; uptime; echo $line
 ### Conditional Execution in Bash： 条件付き実行 (pythonにあたるif-else)
 # bashでは使用される条件はコマンドの終了ステータスに基づいている。
 
-# sample3
+### sample3
 if grep "127.0.0.1" /etc/hosts; then
     echo "Everything ok"
 else
@@ -76,3 +76,5 @@ if [ -n "$PATH"]; then echo "Your path is not empty!!"; fi     # []: Alias of te
 # Your path is not empty
 # Your path is not empty!!
 
+# sample4
+n = 1
