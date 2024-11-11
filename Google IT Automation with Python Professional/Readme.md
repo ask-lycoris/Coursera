@@ -1,5 +1,7 @@
 Environment  
-[Google collaboratory](URL: https://colab.google/)  
+[Google colaboratory](URL: https://colab.google/)  
+How to use other language on colaboratory ---> https://qiita.com/u-10bei/items/38d6f0e4bfdc40efce3a  
+
 Curriculum  
 [Coursera](URL: https://www.coursera.org/professional-certificates/google-it-automation "Top page")  
 
