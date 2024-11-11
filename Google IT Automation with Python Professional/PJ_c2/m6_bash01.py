@@ -48,3 +48,31 @@ echo "UPTIME"; uptime; echo $line
 # UPTIME
 #  17:30:30 up 8 days,  1:51,  2 users,  load average: 0,00, 0,00, 0,00
 # -------------------------------------------------
+
+### Globs: 正規表現みたいにコマンドラインからそのままファイルを探すことが可能。
+# pytnonでこの機能を使用したいときは glob module から利用可能。
+# $ echo ?????.py
+# areas.py hello.py myapp.py
+
+### Conditional Execution in Bash： 条件付き実行 (pythonにあたるif-else)
+# bashでは使用される条件はコマンドの終了ステータスに基づいている。
+
+# sample3
+if grep "127.0.0.1" /etc/hosts; then
+    echo "Everything ok"
+else
+    echo "ERROR! 127.0.0.1 is not in/etc/hosts"
+fi
+
+# output
+# 127.0.0.1
+# Everything ok
+
+### Test command: true = 0, False = 1
+if test -n "$PATH"; then echo "Your path is not empty"; fi   # -n: check if empty of strings
+if [ -n "$PATH"]; then echo "Your path is not empty!!"; fi     # []: Alias of test command
+
+# output
+# Your path is not empty
+# Your path is not empty!!
+
