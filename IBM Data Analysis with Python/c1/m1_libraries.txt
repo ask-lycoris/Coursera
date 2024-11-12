@@ -1,0 +1,24 @@
+Scientifics computing libraries in Python ()
+
+Pandas：Data structure & tools
+効果的なデータ操作と分析のためのデータ構造とツールの提供、構造化されたデータに素早くアクセス可能
+DataFrameと呼ばれる列ラベルと行ラベルで構成される2次元テーブル、簡単にインデックスを作成できるように設計されている
+Numpy：Arrays & matrics
+入力と出力には配列を用意する、行列用のオブジェクトにも拡張でき、コーディングを少し変更するだけで開発者は高速な配列処理を実行できる
+SciPy: Integrals, solving defferential equations, optimization
+高度な数学問題に対応する関数や、データ視覚化機能
+
+Visualization Libraries in Python (データ可視化ライブラリ)
+Matplotlib: plots & graphs, most popular
+グラフは高度にカスタマイズ可能
+Seaborn: heat maps, time series, violin plots
+Matplotlibをベースにしており、さまざまなプロットを非常に簡単に生成可能
+
+Algorithimic Library (機械学習アルゴリズム)
+Scikit-learn: Machine learning (Regression, classification,,,)
+回帰、クラスタリングなどの統計モデリングのためのツール
+Numpy, SciPy, Matplotlibをベースに構築されている
+Statsmodels: Explore data, estimate statistical models, perform statistical tests
+Python moduleでもあり、これを使用するとデータの探索、統計モデルの推定、統計的検定を行うことが可能。
+
+
