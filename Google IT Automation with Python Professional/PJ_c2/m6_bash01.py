@@ -1,7 +1,12 @@
 # Google colab内で他の言語を使用する際は、「%%(=マジックコマンド)」を先頭につけて '%%javascript' のように指定するとその言語で動かしてくれる。
 %%bash
 
-### sample1
+### bashの注意点
+# bashでは、変数代入時にスペースを入れてはいけない。スぺ―スもトークンとして認識されてしまう。
+# よく遭遇する事例 → https://www.linux-jp.org/?p=554
+
+
+### sample1: variable
 echo "Starting at: $(date)"
 echo
 
@@ -34,7 +39,7 @@ echo "Finishing at: $(date)"
 
 # Finishing at: Mon Nov 11 12:37:12 PM UTC 2024
 
-### sample2
+### sample2: variable
 line="-------------------------------------------------"
 
 # $<variable>は格納した変数を適用してくれる
@@ -57,7 +62,7 @@ echo "UPTIME"; uptime; echo $line
 ### Conditional Execution in Bash： 条件付き実行 (pythonにあたるif-else)
 # bashでは使用される条件はコマンドの終了ステータスに基づいている。
 
-### sample3
+### sample3: if-else
 if grep "127.0.0.1" /etc/hosts; then
     echo "Everything ok"
 else
@@ -76,5 +81,14 @@ if [ -n "$PATH"]; then echo "Your path is not empty!!"; fi     # []: Alias of te
 # Your path is not empty
 # Your path is not empty!!
 
-# sample4
-n = 1
+### sample4: Loop
+# 特定のコマンドを実行し、そのコマンドが失敗した場合に再試行するためのループを作成している
+# bashではスペースもトークンとみなされるので'='前後にスペースを入れない！
+n=0
+command=$1
+# $commandの実行が失敗したら、&& 以降を実行する
+while ! $command && [$n -lw 5]; do
+  sleep $n   # 再試行のたびにnは増加するので待機時間が増加する
+  ((n=n+1))
+  echo "Retry #$n"
+done;
