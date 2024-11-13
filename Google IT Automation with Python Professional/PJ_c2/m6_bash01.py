@@ -92,3 +92,11 @@ while ! $command && [$n -lw 5]; do
   ((n=n+1))
   echo "Retry #$n"
 done;
+
+
+### sample5: Loop
+# カレントディレクトリに存在するすべての xx.HTM ファイルをrenameする
+for file in *.HTM; do
+  name=$(basename "$file" .HTM)
+  mv "$file" "$name.html"
+done
