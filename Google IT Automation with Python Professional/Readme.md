@@ -19,3 +19,8 @@ What I learned
 | `course4` Troubleshootingand Debugging Techniques | xxx |
 | `course5` Configuration Management and the Cloud | xxx |
 | `course6` Automating Real-World Tasks with Python | xxx |
+
+★ Steps for coding projects ★
+1. Understand the problem statement 
+2. Research
+3. Planning
