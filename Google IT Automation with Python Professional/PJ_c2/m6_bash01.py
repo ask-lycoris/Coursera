@@ -103,6 +103,7 @@ done
 
 ### sample6: until
 # 指定した条件が真になるまでループが続く(最初はfalseが前提ってこと！)
+# = 条件が偽のままである限り、一連の命令を実行する
 counter=1
 
 until [ $counter -gt 5 ]; do
