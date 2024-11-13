@@ -100,9 +100,3 @@ for file in *.HTM; do
   name=$(basename "$file" .HTM)
   mv "$file" "$name.html"
 done
-
-### sample6: for syslog
-for logfile in /var/log/*log; do
-    echo "Processing: $logfile"
-    cut -d' ' -f5- $logfile | sort | uniq -c | sort -nr | head -5
-done
