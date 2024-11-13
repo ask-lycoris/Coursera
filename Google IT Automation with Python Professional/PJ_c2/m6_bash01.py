@@ -100,3 +100,12 @@ for file in *.HTM; do
   name=$(basename "$file" .HTM)
   mv "$file" "$name.html"
 done
+
+### sample6: until
+# 指定した条件が真になるまでループが続く(最初はfalseが前提ってこと！)
+counter=1
+
+until [ $counter -gt 5 ]; do
+    echo "Counter: $counter"
+    ((counter++))  # カウンタを1増やす
+done
