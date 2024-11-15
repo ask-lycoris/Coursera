@@ -16,13 +16,20 @@ df = pd.DataFrame(data)
 print(df)
 
 # Extract infomation of each types from DataFrame
-types = df.dtypes   # propertyであって、methodではないので()不要
-summary = df.info()
-detail = df.describe()
-lines = df.head(12)
-print(f"\n\n-----Summary-----\n{summary}\n\n-----Type-----\n{types}\n\n-----Detail-----\n{detail}\n\n-----12lines-----\n{lines}")
-# もし改行したいのであれば、以下のように各行の末尾は'\'で終わらせないと続く行とみなされず、エラーになるので注意！
-print(f"\n\n-----Summary-----\n{summary}\
-         n\n-----Type-----\n{types}\
-         n\n-----Detail-----\n{detail}\
-         n\n-----12lines-----\n{lines}")
+print(
+    f"\n\n-----Type-----\n{df.dtypes}"      # propertyであって、methodではないので()不要
+    f"\n\n-----Detail-----\n{df.describe()}"
+    f"\n\n-----12lines-----\n{df.head(12)}"
+    f"\n\n-----Summary-----\n{df.info()}\n\n"   # infoメソッドは返り値を返さないのでNone
+)
+# infoメソッドは標準出力に出力する
+df.info()
+
+# print(f"\n\n-----Summary-----\n{summary}\n\n-----Type-----\n{types}\n\n-----Detail-----\n{detail}\n\n-----12lines-----\n{lines}")
+# # もし改行したいのであれば、以下のように各行の末尾は'\'で終わらせないと続く行とみなされず、エラーになるので注意！
+# print(f"\n\n-----Summary-----\n{summary}\
+#          n\n-----Type-----\n{types}\
+#          n\n-----Detail-----\n{detail}\
+#          n\n-----12lines-----\n{lines}")
+
+
