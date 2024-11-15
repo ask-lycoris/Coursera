@@ -19,7 +19,7 @@ print(df)
 print(
     f"\n\n-----Type-----\n{df.dtypes}"      # propertyであって、methodではないので()不要
     f"\n\n-----Detail1-----\n{df.describe()}"
-    f"\n\n-----Detail2-----\n{df.describe(include='all')}"
+    f"\n\n-----Detail2-----\n{df.describe(include='all')}"   # pythonは1行ずつ読んでいくため、二重でクォーテーションを使用する際は別の種類を使用すること
     f"\n\n-----12lines-----\n{df.head(12)}"
     f"\n\n-----Summary-----\n{df.info()}\n\n"   # infoメソッドは返り値を返さないのでNone
 )
