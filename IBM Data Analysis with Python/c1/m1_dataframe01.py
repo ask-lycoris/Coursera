@@ -18,7 +18,8 @@ print(df)
 # Extract infomation of each types from DataFrame
 print(
     f"\n\n-----Type-----\n{df.dtypes}"      # propertyであって、methodではないので()不要
-    f"\n\n-----Detail-----\n{df.describe()}"
+    f"\n\n-----Detail1-----\n{df.describe()}"
+    f"\n\n-----Detail2-----\n{df.describe(include='all')}"
     f"\n\n-----12lines-----\n{df.head(12)}"
     f"\n\n-----Summary-----\n{df.info()}\n\n"   # infoメソッドは返り値を返さないのでNone
 )
