@@ -21,6 +21,39 @@ cat disk_usage.diff
 # meld: GUI ベースの差分ツールで、ファイルやディレクトリの比較が可能。変更点を視覚的に表示し、マージ機能も備えている。
 # kdiff3: 3つのファイルを同時に比較できるGUIツール。変更点を視覚的に確認し、マージも実行可能。
 
+### sample1
+# ~$ cat menu1.txt 
+# Menu1:
+
+# Apples
+# Bananas
+# Oranges
+# Pears
+
+# ~$ cat menu2.txt 
+# Menu:
+
+# Apples
+# Bananas
+# Grapes
+# Strawberries
+
+# ~$ diff -u menu1.txt menu2.txt 
+# --- menu1.txt   2019-12-16 18:46:13.794879924 +0900
+# +++ menu2.txt   2019-12-16 18:46:42.090995670 +0900
+# @@ -1,6 +1,6 @@
+# -Menu1:
+# +Menu:
+ 
+#  Apples
+#  Bananas
+# -Oranges
+# -Pears
+# +Grapes
+# +Strawberries
+
+
+
 import difflib
 
 # sampleA.txt を作成
@@ -57,3 +90,27 @@ for line in diff:
 # 手動ファイル編集することなく、変更を一括で反映が可能。
 patch disk_usage_original.py < disk_usage.diff
 # デフォルトで元のファイルを上書きしてしまうため、元のファイルをバックアップしたい場合は、-b option を使用する。
+
+### sample2
+# ~$ cat hello_world.txt 
+# Hello World
+# ~$ cat hello_world_long.txt 
+# Hello World
+
+# It's a wonderful day!
+# ~$ diff -u hello_world.txt hello_world_long.txt 
+# --- hello_world.txt     2019-12-16 19:24:12.556102821 +0900
+# +++ hello_world_long.txt        2019-12-16 19:24:38.944207773 +0900
+# @@ -1 +1,3 @@
+#  Hello World
+# +
+# +It's a wonderful day!
+# ~$ diff -u hello_world.txt hello_world_long.txt > hello_world.diff
+# ~$ patch hello_world.txt < hello_world.diff 
+# patching file hello_world.txt
+# ~$ cat hello_world.txt 
+# Hello World
+
+# It's a wonderful day!
+
+
