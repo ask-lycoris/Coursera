@@ -5,14 +5,19 @@ import re
 # The phone number field contains U.S. phone numbers and needs to be modified to the international format, with +1- in front of the phone number.
 # The rest of the phone number should not change. Fill in the regular expression, using groups, to use the transform_record() function to do that.
 def transform_record(record):
-  new_record = re.sub(r"(\d{3}-\d{3}-\d{4})", r"+1-\1", record)
-                                               #   ---   \1=キャプチャグループで第1Gを指すので、置換前のものに「+1-」を付け足すようになっている。
+  new_record = re.sub(r"(\d{3}-\d{3}-\d{4})", r"+1-\1", record)   # これだとL2の 3文字-7文字 に該当しない
+  new_record = re.sub(r"(\d{3})-(\d{3,})", r"+1-\1-\2", record)   # こっちが正解
+                                              # ---   \1=キャプチャグループで第1Gを指すので、置換前のものに「+1-」を付け足すようになっている。
   return new_record
 
 print(transform_record("Sabrina Green,802-867-5309,System Administrator"))
 print(transform_record("Eli Jones,684-3481127,IT specialist")) 
+print(transform_record("Melody Daniels,846-687-7436,Programmer")) 
+print(transform_record("Charlie Rivera,698-746-3357,Web Developer"))
 # Sabrina Green,+1-802-867-5309,System Administrator
+# Charlie Rivera,+1-698-746-3357,Web Developer
 # Eli Jones,+1-684-3481127,IT specialist
+# Melody Daniels,+1-846-687-7436,Programmer
 
 
 ### sample2
@@ -24,14 +29,15 @@ def multi_vowel_words(text):
   return result
 
 print(multi_vowel_words("Life is beautiful")) 
-# ['beautiful']
 print(multi_vowel_words("Obviously, the queen is courageous and gracious.")) 
-# ['Obviously', 'queen', 'courageous', 'gracious']
 print(multi_vowel_words("The rambunctious children had to sit quietly and await their delicious dinner.")) 
-# ['rambunctious', 'quietly', 'delicious']
 print(multi_vowel_words("The order of a data queue is First In First Out (FIFO)")) 
+print(multi_vowel_words("Hello world!"))
+
+# ['beautiful']
+# ['Obviously', 'queen', 'courageous', 'gracious']
+# ['rambunctious', 'quietly', 'delicious']
 # ['queue']
-print(multi_vowel_words("Hello world!")) 
 # []
 
 
@@ -45,13 +51,14 @@ def transform_comments(line_of_code):
   return result
 
 print(transform_comments("### Start of program")) 
-# Should be "// Start of program"
 print(transform_comments("  number = 0   ## Initialize the variable")) 
-# Should be "  number = 0   // Initialize the variable"
 print(transform_comments("  number += 1   # Increment the variable")) 
-# Should be "  number += 1   // Increment the variable"
 print(transform_comments("  return(number)")) 
-# Should be "  return(number)"
+
+# // Start of program
+#   number = 0   // Initialize the variable
+#   number += 1   // Increment the variable
+#   return(number)
 
 
 ### sample4
