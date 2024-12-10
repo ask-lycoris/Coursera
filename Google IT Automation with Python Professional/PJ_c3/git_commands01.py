@@ -61,6 +61,7 @@ git branch
 
 ブランチを管理。
 git checkout / git switch
+git checkoutは内部的にどんなことをしているのか？ ---> By updating the working tree to match the selected branch.
 
 指定したブランチやコミットに移動。
 git reset
