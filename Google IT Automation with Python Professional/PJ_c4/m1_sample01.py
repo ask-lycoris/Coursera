@@ -1,3 +1,4 @@
+### sample1
 import datetime
 from datetime import date
 
@@ -24,3 +25,30 @@ today_string = today.strftime("%Y-%m-%d")  # Format today's date as a string
 
 print(next_date("2021-01-01")) # Should return 2022-01-01
 print(next_date("2020-02-29")) # Should return 2024-02-29
+
+
+### sample2
+from datetime import datetime, timedelta
+
+def add_year(date_obj):
+    print(f"Debug: Starting add_year with date_obj: {date_obj}")  # Debugging
+    try:
+        # Try to add one year directly
+        return date_obj.replace(year=date_obj.year + 1)
+    except ValueError:
+        # Handle leap year case (February 29)
+        print("Debug: Adjusting for leap year.")  # Debugging
+        return date_obj + timedelta(days=365 * 4)  # Move to next possible leap year
+
+def next_date(date_string):
+    print(f"Debug: Starting next_date with date_string: {date_string}")  # Debugging
+    date_obj = datetime.strptime(date_string, "%Y-%m-%d")
+    print(f"Debug: Parsed date_obj: {date_obj}")  # Debugging
+    next_year_date = add_year(date_obj)
+    print(f"Debug: Calculated next_year_date: {next_year_date}")  # Debugging
+    return next_year_date.strftime("%Y-%m-%d")
+
+# Test Cases
+print(next_date("2020-02-29"))  # Leap year case
+print(next_date("2021-03-01"))  # Regular case
+
