@@ -1,4 +1,30 @@
-### sample1
+### Q1
+#sample1
+import re
+
+def compare_strings(string1, string2):
+    # Convert both strings to lowercase and remove leading/trailing spaces
+    string1 = string1.lower().strip()
+    string2 = string2.lower().strip()
+
+    # Define punctuation and escape the hyphen
+    punctuation = r"[.?!,;:\-\']"  # Escape '-' using '\'
+
+    # Remove punctuation
+    string1 = re.sub(punctuation, r"", string1)
+    string2 = re.sub(punctuation, r"", string2)
+
+    # Compare the normalized strings
+    return string1 == string2
+
+print(compare_strings("Have a Great Day!", "Have a great day?")) # True
+print(compare_strings("It's raining again.", "its raining, again")) # True
+print(compare_strings("Learn to count: 1, 2, 3.", "Learn to count: one, two, three.")) # False
+print(compare_strings("They found some body.", "They found somebody.")) # False
+
+
+### Q2
+# sample2
 import datetime
 from datetime import date
 
@@ -27,7 +53,8 @@ print(next_date("2021-01-01")) # Should return 2022-01-01
 print(next_date("2020-02-29")) # Should return 2024-02-29
 
 
-### sample2
+### Q2
+# sample2
 from datetime import datetime, timedelta
 
 def add_year(date_obj):
