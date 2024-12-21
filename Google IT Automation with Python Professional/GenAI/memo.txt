@@ -1,0 +1,11 @@
+As a reminder, here is the prompting framework:
+
+Thoughtfully: Describe your task, specifying a persona and format preference.
+
+Create: Include any context the gen AI tool might need to give you what you want.
+
+Really: Add references the gen AI tool can use to inform its output.
+
+Excellent: Next, evaluate the output to identify opportunities for improvement. 
+
+Inputs: Then, iterate on your initial prompt to attain those improvements.
